@@ -6,48 +6,56 @@ import {
   Container,
   HStack,
   Spacer,
+  useBreakpointValue,
+  Box,
+  Center,
 } from "@chakra-ui/react";
 
 export default function Banner() {
+  const isMobileLayout = useBreakpointValue({
+    base: false,
+    md: true,
+  });
   return (
-    <Flex height={368.21} width="100%" paddingBottom={7.42}>
-      <Flex
-        h={335}
+    <Flex height={["163px", "163px", "368.21px"]} width="100%">
+      <Box
+        h={["163px", "163px", "335px"]}
         width="100%"
         backgroundRepeat="no-repeat"
         backgroundImage="/images/banner_background.jpg"
         backgroundPosition="center"
         position="absolute"
-      />
-      <Container maxWidth="calc(100% - 280px)" zIndex={1}>
-        <Flex
-          alignItems="center"
-          width="100%"
-          height="100%"
-          justifyContent="space-between"
-        >
-          <VStack alignItems="flex-start">
-            <Heading
-              size="xl"
-              color="light.info"
-              fontWeight="500"
-              width={420}
-              lineHeight="54px"
-            >
-              5 Continentes, infinitas possibilidades.
-            </Heading>
+      ></Box>
 
-            <Text
-              fontSize="xl"
-              color="light.info"
-              fontWeight="500"
-              width={524}
-              lineHeight="30px"
-            >
-              Chegou a hora de tirar do papel a viagem que você sempre sonhou.
-            </Text>
-          </VStack>
+      <Flex
+        px={["4", "4", "140px"]}
+        zIndex={10}
+        alignItems="center"
+        width="100%"
+        height="100%"
+        justifyContent={["left", "left", "space-between"]}
+      >
+        <VStack alignItems="flex-start">
+          <Heading
+            size={["md", "md", "xl"]}
+            color="light.info"
+            fontWeight="500"
+            lineHeight="54px"
+          >
+            5 Continentes, <br />
+            infinitas possibilidades.
+          </Heading>
 
+          <Text
+            fontSize={["sm", "sm", "xl"]}
+            color="light.info"
+            fontWeight="500"
+            lineHeight="30px"
+          >
+            Chegou a hora de tirar do papel a viagem que você sempre sonhou.
+          </Text>
+        </VStack>
+        {isMobileLayout && (
           <img
             style={{
               marginBottom: "-117px",
@@ -57,8 +65,8 @@ export default function Banner() {
             src="/images/airplane.svg"
             alt="Figura do avião dentro do banner"
           />
-        </Flex>
-      </Container>
+        )}
+      </Flex>
     </Flex>
   );
 }

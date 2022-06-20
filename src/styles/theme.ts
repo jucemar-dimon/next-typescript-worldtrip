@@ -1,6 +1,17 @@
 import { extendTheme, Theme } from '@chakra-ui/react';
 
+
+const breakpoints = {
+  xs: '23.43em',
+  sm: '30em',
+  md: '48em',
+  lg: '62em',
+  xl: '80em',
+  '2xl': '96em',
+}
+
 export const theme = extendTheme({
+  breakpoints,
   colors: {
     hightlight: {
       500: '#FFBA08',
@@ -25,7 +36,11 @@ export const theme = extendTheme({
   styles: {
     global: {
       body: {
-        bg: 'light.info',
+        bg: 'light.headingsAndTexts',
+      },
+      html: {
+        height: '100vh',
+        width: '100%'
       }
     }
   }

@@ -1,11 +1,20 @@
-import { Center, Container, Divider, Heading } from "@chakra-ui/react";
+import {
+  Center,
+  Container,
+  Divider,
+  Flex,
+  Heading,
+  HStack,
+  VStack,
+} from "@chakra-ui/react";
 import Banner from "../components/Banner";
 import Header from "../components/Header";
+import SlideShow from "../components/SlideShow";
 import TravelTypes from "../components/TravelTypes";
 
 export default function Home() {
   return (
-    <>
+    <Flex direction="column">
       <Header />
       <Banner />
       <TravelTypes />
@@ -28,6 +37,9 @@ export default function Home() {
           Então escolha seu continente
         </Heading>
       </Center>
-    </>
+      <Center marginTop="52px">
+        <SlideShow />
+      </Center>
+    </Flex>
   );
 }
